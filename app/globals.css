@@ -149,6 +149,10 @@
   --text-caption-sm--letter-spacing: 0.28em;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ── Global body defaults ── */
 body {
   font-size: 16px;

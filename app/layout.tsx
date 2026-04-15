@@ -24,8 +24,20 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Festa Patronal CSJ",
-  description: "Inscrição para a Festa Patronal do Colégio São José",
+  title: "Festa Patronal — Colégio São José",
+  description:
+    "Inscreva sua família para a Festa Patronal do Colégio São José. 01 de maio de 2026 — Santa Missa, almoço, jogos e Grande Bingo.",
+  metadataBase: new URL("https://festa.csj.edu.br"),
+  openGraph: {
+    title: "Festa Patronal — Colégio São José",
+    description:
+      "01 de maio de 2026. Santa Missa Solene às 10h, almoço, jogos e Grande Bingo. Inscreva sua família!",
+    type: "website",
+    locale: "pt_BR",
+  },
+  other: {
+    "theme-color": "#1B2845",
+  },
 };
 
 export default function RootLayout({
