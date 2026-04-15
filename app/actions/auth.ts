@@ -13,7 +13,7 @@ export async function adminLogin(_prev: unknown, formData: FormData) {
 
   const hash = process.env.ADMIN_PASSWORD_HASH!
   if (!(await bcrypt.compare(password, hash))) {
-    return { ok: false as const, error: 'Senha incorreta' }
+    return { ok: false as const, error: 'Senha inválida' }
   }
 
   const jar = await cookies()
