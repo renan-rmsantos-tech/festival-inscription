@@ -14,8 +14,9 @@ build/
 out/
 .next/
 .turbo/
-.vercel/
+.vercel
 .cache/
+.eslintcache
 *.tsbuildinfo
 next-env.d.ts
 
@@ -37,6 +38,8 @@ lerna-debug.log*
 coverage/
 .nyc_output/
 *.lcov
+playwright-report/
+test-results/
 
 # OS files
 .DS_Store
@@ -55,8 +58,13 @@ Desktop.ini
 *.swo
 *~
 
+# Local scratch / temp
+.tmp/
+tmp/
+*.tmp
+
 # Claude Code / agents (installed from skills-lock.json)
 .claude/settings.local.json
 .claude/skills/
 .agents/skills/
-.vercel
+.compozy/
