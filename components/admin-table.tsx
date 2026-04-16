@@ -147,7 +147,7 @@ export function AdminTable({
         <span className="w-[90px] shrink-0 text-right font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
           Total
         </span>
-        <span className="w-[160px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450] pl-4">
+        <span className="w-[160px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450] pl-5">
           Recebida em
         </span>
         <span className="w-[150px] shrink-0 text-right font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
@@ -175,7 +175,7 @@ export function AdminTable({
 
             {/* Name */}
             <div className="w-[360px] shrink-0 flex items-start gap-3">
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-[3px]">
                 <span className="font-sans text-[15px] font-semibold leading-[18px] text-navy">
                   {row.name}
                 </span>
@@ -194,7 +194,7 @@ export function AdminTable({
             </div>
 
             {/* Contact */}
-            <div className="w-[280px] shrink-0 flex flex-col">
+            <div className="w-[280px] shrink-0 flex flex-col gap-[3px]">
               <span className="font-sans text-[13px] leading-[16px] text-[#4A4435]">
                 {row.email || '—'}
               </span>
@@ -219,7 +219,7 @@ export function AdminTable({
             </span>
 
             {/* Date */}
-            <div className="w-[160px] shrink-0 flex flex-col pl-4">
+            <div className="w-[160px] shrink-0 flex flex-col gap-0.5 pl-5">
               <span className="font-sans text-[13px] leading-[16px] text-[#4A4435]">
                 {dateFormatter.format(row.createdAt).replace('.', '')}
               </span>
@@ -229,7 +229,7 @@ export function AdminTable({
             </div>
 
             {/* Actions */}
-            <div className="w-[150px] shrink-0 flex items-center justify-end gap-4">
+            <div className="w-[150px] shrink-0 flex items-center justify-end gap-2.5">
               <button
                 onClick={() => setExpanded(expanded === row.code ? null : row.code)}
                 className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-navy underline underline-offset-[3px] decoration-1 cursor-pointer hover:text-navy/70 transition-colors"
