@@ -70,7 +70,7 @@ export function AdminTable({
   }, [rows, filter, search, duplicates])
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-x-auto">
       {/* Search & Filters */}
       <div className="flex items-center border-y border-[#D4C9A8]">
         {/* Search */}
@@ -132,10 +132,10 @@ export function AdminTable({
         <span className="w-[60px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
           N.º
         </span>
-        <span className="w-[360px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
+        <span className="flex-[36] min-w-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
           Responsável
         </span>
-        <span className="w-[280px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
+        <span className="flex-[28] min-w-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
           Contato
         </span>
         <span className="w-[90px] shrink-0 text-right font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
@@ -174,7 +174,7 @@ export function AdminTable({
             </span>
 
             {/* Name */}
-            <div className="w-[360px] shrink-0 flex items-start gap-3">
+            <div className="flex-[36] min-w-0 flex items-start gap-3">
               <div className="flex flex-col gap-[3px]">
                 <span className="font-sans text-[15px] font-semibold leading-[18px] text-navy">
                   {row.name}
@@ -194,7 +194,7 @@ export function AdminTable({
             </div>
 
             {/* Contact */}
-            <div className="w-[280px] shrink-0 flex flex-col gap-[3px]">
+            <div className="flex-[28] min-w-0 flex flex-col gap-[3px]">
               <span className="font-sans text-[13px] leading-[16px] text-[#4A4435]">
                 {row.email || '—'}
               </span>
