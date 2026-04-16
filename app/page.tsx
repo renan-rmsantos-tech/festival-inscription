@@ -18,7 +18,7 @@ const INFO_ITEMS = [
   },
   {
     num: "II.",
-    label: "Consumação",
+    label: "Consumo",
     content: (
       <>
         <div className="flex items-baseline gap-1.5">
@@ -53,7 +53,7 @@ const INFO_ITEMS = [
           </p>
         </div>
         <p className="font-accent text-[22px] leading-[28px] italic font-medium text-body-ink">
-          Estes serão os únicos meios de pagamentos permitidos.
+          Estes serão os únicos meios permitidos no local. Entrada franca.
         </p>
       </>
     ),
@@ -270,7 +270,7 @@ export default async function Home() {
           </h2>
           <p className="font-accent text-[20px] leading-[30px] italic text-creme/75 mt-10 lg:mt-[68px]">
             Começamos com a Santa Missa e seguimos com um almoço típico, jogos
-            para a criançada e o aguardado bingo da noite.
+            para a criançada e o aguardado bingo.
           </p>
         </div>
 
@@ -335,6 +335,7 @@ export default async function Home() {
                   'Preenchimento em 2 minutos',
                   'Confirmação enviada ao responsável',
                   'Inscrições pelo link até 25 de abril',
+                  'Entrada gratuita',
                 ].map((item) => (
                   <li key={item} className="flex items-baseline gap-3">
                     <span
