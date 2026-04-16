@@ -49,7 +49,7 @@ export default async function AdminPage() {
   return (
     <main className="flex flex-col min-h-screen bg-background">
       {/* ── Top Bar ── */}
-      <header className="flex items-center justify-between h-[72px] px-20 bg-[#1B2340] shrink-0">
+      <header className="flex items-center justify-between h-[72px] px-20 bg-navy shrink-0">
         <div className="flex items-center gap-3">
           <img
             src="/images/logo-fsspx.png"
@@ -58,7 +58,7 @@ export default async function AdminPage() {
             height={24}
             className="shrink-0 invert"
           />
-          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-[#F6F1E6]">
+          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-creme">
             Colégio São José · FSSPX — ACIPEC
           </span>
         </div>
@@ -80,7 +80,7 @@ export default async function AdminPage() {
         {/* Title row */}
         <div className="flex items-end justify-between">
           <div className="flex flex-col gap-4">
-            <h1 className="font-heading text-[76px] leading-[82px] tracking-[-0.01em] font-bold text-[#1B2340]">
+            <h1 className="font-heading text-[76px] leading-[82px] tracking-[-0.01em] font-bold text-navy">
               Livro de{'\n'}Inscrições.
             </h1>
             <p className="font-sans text-[16px] leading-[26px] text-[#4A4435] max-w-[520px]">
@@ -93,7 +93,7 @@ export default async function AdminPage() {
           <div className="flex items-center gap-4 shrink-0">
             <a
               href="/api/csv"
-              className="flex items-center gap-3 px-[22px] py-[14px] border border-[#1B2340] font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-[#1B2340] hover:bg-[#1B2340] hover:text-[#F6F1E6] transition-colors"
+              className="flex items-center gap-3 px-[22px] py-[14px] border border-navy font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-navy hover:bg-navy hover:text-creme transition-colors"
             >
               Exportar CSV
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -105,7 +105,7 @@ export default async function AdminPage() {
             <form action={adminLogout}>
               <button
                 type="submit"
-                className="flex items-center px-[22px] py-[14px] bg-[#1B2340] border border-[#1B2340] font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-[#F6F1E6] hover:bg-[#141B30] transition-colors cursor-pointer"
+                className="flex items-center px-[22px] py-[14px] bg-navy border border-navy font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-creme hover:bg-navy/90 transition-colors cursor-pointer"
               >
                 Sair
               </button>
@@ -145,7 +145,7 @@ export default async function AdminPage() {
                   {roman}. {label}
                 </span>
                 <div className="flex items-baseline gap-1.5">
-                  <span className={`font-heading text-[84px] leading-[90px] font-medium ${isLast ? 'text-wine' : 'text-[#1B2340]'}`}>
+                  <span className={`font-heading text-[84px] leading-[90px] font-medium ${isLast ? 'text-wine' : 'text-navy'}`}>
                     {totals[key]}
                   </span>
                   <span className="font-accent text-[18px] italic text-wine">
@@ -177,7 +177,7 @@ export default async function AdminPage() {
                 II · Registros
               </span>
             </div>
-            <h2 className="font-heading text-[46px] leading-[52px] tracking-[-0.005em] font-medium text-[#1B2340]">
+            <h2 className="font-heading text-[46px] leading-[52px] tracking-[-0.005em] font-medium text-navy">
               Famílias confirmadas
             </h2>
           </div>

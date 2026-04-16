@@ -93,7 +93,7 @@ export function AdminTable({
           <button
             onClick={() => setFilter('all')}
             className={`font-sans text-[11px] font-semibold uppercase tracking-[0.22em] cursor-pointer transition-colors ${
-              filter === 'all' ? 'text-[#1B2340]' : 'text-[#6B6450]'
+              filter === 'all' ? 'text-navy' : 'text-[#6B6450]'
             }`}
           >
             Todas · {rows.length}
@@ -101,7 +101,7 @@ export function AdminTable({
           <button
             onClick={() => setFilter('today')}
             className={`font-sans text-[11px] font-medium uppercase tracking-[0.22em] cursor-pointer transition-colors ${
-              filter === 'today' ? 'text-[#1B2340] font-semibold' : 'text-[#6B6450]'
+              filter === 'today' ? 'text-navy font-semibold' : 'text-[#6B6450]'
             }`}
           >
             Hoje · {todayCount}
@@ -109,7 +109,7 @@ export function AdminTable({
           <button
             onClick={() => setFilter('duplicates')}
             className={`font-sans text-[11px] font-medium uppercase tracking-[0.22em] cursor-pointer transition-colors ${
-              filter === 'duplicates' ? 'text-[#1B2340] font-semibold' : 'text-[#6B6450]'
+              filter === 'duplicates' ? 'text-navy font-semibold' : 'text-[#6B6450]'
             }`}
           >
             Duplicadas · {duplicates.size}
@@ -120,7 +120,7 @@ export function AdminTable({
             <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-[#6B6450]">
               Ordenar
             </span>
-            <span className="font-accent text-[17px] italic text-[#1B2340]">
+            <span className="font-accent text-[17px] italic text-navy">
               mais recentes primeiro
             </span>
           </div>
@@ -128,7 +128,7 @@ export function AdminTable({
       </div>
 
       {/* Table Header */}
-      <div className="flex items-center py-3.5 border-b-2 border-[#1B2340]">
+      <div className="flex items-center py-3.5 border-b-2 border-navy">
         <span className="w-[60px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
           N.º
         </span>
@@ -176,7 +176,7 @@ export function AdminTable({
             {/* Name */}
             <div className="w-[360px] shrink-0 flex items-start gap-3">
               <div className="flex flex-col">
-                <span className="font-sans text-[15px] font-semibold leading-[18px] text-[#1B2340]">
+                <span className="font-sans text-[15px] font-semibold leading-[18px] text-navy">
                   {row.name}
                 </span>
                 <span className={`font-sans text-[11px] italic leading-[14px] ${isNew ? 'text-gold' : 'text-[#6B6450]'}`}>
@@ -204,12 +204,12 @@ export function AdminTable({
             </div>
 
             {/* Adults */}
-            <span className="w-[90px] shrink-0 text-right font-heading text-[22px] leading-[28px] font-medium text-[#1B2340]">
+            <span className="w-[90px] shrink-0 text-right font-heading text-[22px] leading-[28px] font-medium text-navy">
               {row.adults}
             </span>
 
             {/* Children */}
-            <span className="w-[90px] shrink-0 text-right font-heading text-[22px] leading-[28px] font-medium text-[#1B2340]">
+            <span className="w-[90px] shrink-0 text-right font-heading text-[22px] leading-[28px] font-medium text-navy">
               {row.children}
             </span>
 
@@ -232,7 +232,7 @@ export function AdminTable({
             <div className="w-[150px] shrink-0 flex items-center justify-end gap-4">
               <button
                 onClick={() => setExpanded(expanded === row.code ? null : row.code)}
-                className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-[#1B2340] underline underline-offset-[3px] decoration-1 cursor-pointer hover:text-[#1B2340]/70 transition-colors"
+                className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-navy underline underline-offset-[3px] decoration-1 cursor-pointer hover:text-navy/70 transition-colors"
               >
                 {expanded === row.code ? 'Fechar' : 'Detalhes'}
               </button>
@@ -254,34 +254,34 @@ export function AdminTable({
 
           {/* Expanded details */}
           {expanded === row.code && (
-            <div className="flex gap-8 px-[60px] py-5 bg-[#F6F1E6] border-b border-[#E8E0CF]">
+            <div className="flex gap-8 px-[60px] py-5 bg-creme border-b border-[#E8E0CF]">
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Código</span>
-                <span className="font-heading text-[18px] font-medium text-[#1B2340]">{row.code}</span>
+                <span className="font-heading text-[18px] font-medium text-navy">{row.code}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Responsável</span>
-                <span className="font-sans text-[14px] text-[#1B2340]">{row.name}</span>
+                <span className="font-sans text-[14px] text-navy">{row.name}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">E-mail</span>
-                <span className="font-sans text-[14px] text-[#1B2340]">{row.email || '—'}</span>
+                <span className="font-sans text-[14px] text-navy">{row.email || '—'}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Telefone</span>
-                <span className="font-sans text-[14px] text-[#1B2340]">{row.phone || '—'}</span>
+                <span className="font-sans text-[14px] text-navy">{row.phone || '—'}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Adultos</span>
-                <span className="font-sans text-[14px] text-[#1B2340]">{row.adults}</span>
+                <span className="font-sans text-[14px] text-navy">{row.adults}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Crianças</span>
-                <span className="font-sans text-[14px] text-[#1B2340]">{row.children}</span>
+                <span className="font-sans text-[14px] text-navy">{row.children}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Inscrito em</span>
-                <span className="font-sans text-[14px] text-[#1B2340]">
+                <span className="font-sans text-[14px] text-navy">
                   {dateFormatter.format(row.createdAt)} às {timeFormatter.format(row.createdAt)}
                 </span>
               </div>

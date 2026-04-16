@@ -10,7 +10,7 @@ export default function AdminLoginPage() {
   return (
     <main className="flex min-h-svh">
       {/* Left Panel — Navy */}
-      <div className="hidden lg:flex flex-col justify-between w-1/2 bg-[#1B2340] px-20 py-12">
+      <div className="hidden lg:flex flex-col justify-between w-1/2 bg-navy px-20 py-12">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img
@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
             height={24}
             className="shrink-0 invert"
           />
-          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-[#F6F1E6]/70">
+          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-creme/70">
             Colégio São José · FSSPX
           </span>
         </div>
@@ -28,26 +28,26 @@ export default function AdminLoginPage() {
         {/* Content */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-4">
-            <span className="w-10 h-px bg-[#F6F1E6]/20" />
+            <span className="w-10 h-px bg-creme/20" />
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
               Festa Patronal MMXXVI
             </span>
           </div>
-          <h1 className="font-heading text-[68px] leading-[74px] tracking-[-0.01em] font-bold text-[#F6F1E6]">
+          <h1 className="font-heading text-[68px] leading-[74px] tracking-[-0.01em] font-bold text-creme">
             Livro de{'\n'}Inscrições.
           </h1>
-          <p className="font-sans text-[16px] leading-[28px] text-[#F6F1E6]/55 max-w-[380px]">
+          <p className="font-sans text-[16px] leading-[28px] text-creme/55 max-w-[380px]">
             Acesse o painel para acompanhar as famílias confirmadas e gerir os preparativos da festa.
           </p>
         </div>
 
         {/* Footer */}
         <div className="flex items-center gap-4">
-          <span className="font-accent text-[15px] italic text-[#F6F1E6]/35">
+          <span className="font-accent text-[15px] italic text-creme/35">
             Ite ad Joseph
           </span>
-          <span className="w-5 h-px bg-[#F6F1E6]/15" />
-          <span className="font-accent text-[15px] italic text-[#F6F1E6]/35">
+          <span className="w-5 h-px bg-creme/15" />
+          <span className="font-accent text-[15px] italic text-creme/35">
             01 de Maio de 2026
           </span>
         </div>
@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-wine">
               Área Restrita
             </span>
-            <h2 className="font-heading text-[36px] leading-[42px] font-medium text-[#1B2340] text-center">
+            <h2 className="font-heading text-[36px] leading-[42px] font-medium text-navy text-center">
               Acesso ao{'\n'}Painel
             </h2>
           </div>
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
                 type="password"
                 required
                 autoFocus
-                className="w-full h-[52px] px-[18px] bg-white border border-[#D4C9A8] font-sans text-[16px] text-[#1B2340] focus:border-[#1B2340] focus:outline-none transition-colors"
+                className="w-full h-[52px] px-[18px] bg-white border border-[#D4C9A8] font-sans text-[16px] text-navy focus:border-navy focus:outline-none transition-colors"
               />
             </div>
 
@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={pending}
-              className="flex items-center justify-center gap-3 w-full h-[52px] bg-[#1B2340] border border-[#1B2340] font-sans text-[12px] font-semibold uppercase tracking-[0.24em] text-[#F6F1E6] hover:bg-[#141B30] disabled:opacity-50 transition-colors cursor-pointer"
+              className="flex items-center justify-center gap-3 w-full h-[52px] bg-navy border border-navy font-sans text-[12px] font-semibold uppercase tracking-[0.24em] text-creme hover:bg-navy/90 disabled:opacity-50 transition-colors cursor-pointer"
             >
               {pending ? 'Entrando…' : 'Entrar'}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +113,7 @@ export default function AdminLoginPage() {
           <div className="flex justify-center">
             <Link
               href="/"
-              className="font-sans text-[13px] text-[#6B6450] hover:text-[#1B2340] transition-colors"
+              className="font-sans text-[13px] text-[#6B6450] hover:text-navy transition-colors"
             >
               Voltar ao site principal
             </Link>
