@@ -13,9 +13,13 @@ export default function AdminLoginPage() {
       <div className="hidden lg:flex flex-col justify-between w-1/2 bg-[#1B2340] px-20 py-12">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <span className="flex items-center justify-center w-7 h-7 rounded-full border border-gold">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-          </span>
+          <img
+            src="/images/logo-fsspx.png"
+            alt=""
+            width={24}
+            height={24}
+            className="shrink-0 invert"
+          />
           <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-[#F6F1E6]/70">
             Colégio São José · FSSPX
           </span>

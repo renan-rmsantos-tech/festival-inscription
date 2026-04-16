@@ -51,9 +51,13 @@ export default async function AdminPage() {
       {/* ── Top Bar ── */}
       <header className="flex items-center justify-between h-[72px] px-20 bg-[#1B2340] shrink-0">
         <div className="flex items-center gap-3">
-          <span className="flex items-center justify-center w-7 h-7 rounded-full border border-gold">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-          </span>
+          <img
+            src="/images/logo-fsspx.png"
+            alt=""
+            width={24}
+            height={24}
+            className="shrink-0 invert"
+          />
           <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-[#F6F1E6]">
             Colégio São José · FSSPX — ACIPEC
           </span>
