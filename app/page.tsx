@@ -313,33 +313,65 @@ export default async function Home() {
       {/* ── Inscrição ── */}
       <section
         id="inscricao"
-        className="scroll-mt-20 flex flex-col gap-10 lg:gap-14 px-6 lg:px-20 py-20 lg:py-[120px] border-t border-border"
+        className="scroll-mt-20 flex flex-col lg:flex-row gap-12 lg:gap-24 px-6 lg:px-20 py-20 lg:py-[120px] border-t border-border"
       >
-        <div className="flex flex-col gap-4 items-center text-center">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-px bg-wine shrink-0 hidden sm:block" />
-            <span className="font-sans text-caption-sm tracking-[0.22em] uppercase font-semibold text-wine">
-              III · Inscrição
-            </span>
-            <div className="w-10 h-px bg-wine shrink-0 hidden sm:block" />
-          </div>
-          <h2 className="font-heading text-h2 sm:text-[56px] sm:leading-[64px] tracking-[-0.01em] font-bold text-navy">
-            {open ? 'Inscreva sua família.' : 'Inscrições encerradas.'}
-          </h2>
-          {open && (
-            <p className="font-accent text-[20px] leading-[32px] italic text-body-ink/80 max-w-[480px]">
-              Preencha o formulário abaixo para confirmar a presença da sua
-              família na festa.
-            </p>
-          )}
-        </div>
-
         {open ? (
-          <RsvpForm />
+          <>
+            <div className="flex flex-col w-full lg:w-[440px] shrink-0 lg:pt-3 gap-8 lg:gap-9">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-px bg-wine shrink-0 hidden sm:block" />
+                <span className="font-sans text-caption-sm tracking-[0.28em] uppercase font-semibold text-wine">
+                  III · Inscrição
+                </span>
+              </div>
+              <h2 className="font-heading text-[48px] sm:text-[64px] leading-[1.06] tracking-[-0.015em] font-bold text-navy">
+                Conte quem
+                <br />
+                vem com você.
+              </h2>
+              <p className="font-accent text-[20px] leading-[30px] italic text-body-ink/80">
+                Precisamos saber quantas pessoas esperar para preparar a festa
+                com o carinho que ela merece. Preencha uma inscrição por
+                responsável.
+              </p>
+              <ul className="flex flex-col gap-3 pt-2">
+                {[
+                  'Preenchimento em 2 minutos',
+                  'Confirmação enviada ao responsável',
+                  'Inscrições abertas até 25 de abril',
+                ].map((item) => (
+                  <li key={item} className="flex items-baseline gap-3">
+                    <span
+                      aria-hidden
+                      className="font-heading text-[14px] leading-[18px] font-semibold text-gold"
+                    >
+                      —
+                    </span>
+                    <span className="font-sans text-[15px] leading-[22px] font-medium text-body-ink">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex-1 min-w-0">
+              <RsvpForm />
+            </div>
+          </>
         ) : (
-          <div className="flex flex-col items-center gap-4 py-8">
+          <div className="flex flex-col items-center gap-4 py-8 w-full">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-px bg-wine shrink-0 hidden sm:block" />
+              <span className="font-sans text-caption-sm tracking-[0.22em] uppercase font-semibold text-wine">
+                III · Inscrição
+              </span>
+              <div className="w-10 h-px bg-wine shrink-0 hidden sm:block" />
+            </div>
+            <h2 className="font-heading text-h2 sm:text-[56px] sm:leading-[64px] tracking-[-0.01em] font-bold text-navy">
+              Inscrições encerradas.
+            </h2>
             <p className="font-accent text-[24px] leading-[34px] italic font-medium text-body-ink/80 text-center">
-              Inscrições encerradas. Até sábado!
+              Até sábado!
             </p>
           </div>
         )}
