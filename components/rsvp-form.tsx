@@ -46,7 +46,8 @@ export function RsvpForm() {
       try {
         const result = await submitRsvp(data)
         if (result.ok) {
-          router.push(`/confirmacao/${result.code}`)
+          // Code is "2026/XXXXX" — must encode so "/" is not treated as an extra path segment
+          router.push(`/confirmacao/${encodeURIComponent(result.code)}`)
           return
         }
         if (result.error === 'deadline') {

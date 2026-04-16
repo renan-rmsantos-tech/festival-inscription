@@ -36,7 +36,8 @@ export async function submitRsvp(input: unknown): Promise<RsvpResult> {
       children,
     })
     return { ok: true, code }
-  } catch {
+  } catch (err) {
+    console.error('[submitRsvp]', err)
     return { ok: false, error: 'server' }
   }
 }

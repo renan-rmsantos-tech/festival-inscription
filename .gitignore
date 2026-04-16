@@ -68,3 +68,4 @@ tmp/
 .claude/skills/
 .agents/skills/
 .compozy/
+.env*.local
