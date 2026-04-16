@@ -161,7 +161,9 @@ body {
 }
 
 /* ── Default heading typography ── */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair-display);
-  color: var(--navy);
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair-display);
+    color: var(--navy);
+  }
 }
