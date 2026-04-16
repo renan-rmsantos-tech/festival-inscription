@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
-import Image from "next/image";
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { rsvps } from "@/lib/db/schema";
@@ -29,7 +28,7 @@ export default async function ConfirmacaoPage({
       {/* ── Top Bar ── */}
       <header className="flex items-center justify-between px-6 py-5 lg:px-20 lg:py-7 border-b border-border">
         <div className="flex items-center gap-3.5">
-          <Image
+          <img
             src="/images/logo-fsspx.png"
             alt=""
             width={26}
@@ -131,7 +130,7 @@ export default async function ConfirmacaoPage({
       {/* ── Footer ── */}
       <footer className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 lg:px-20 py-8 border-t border-border">
         <div className="flex items-center gap-3.5">
-          <Image
+          <img
             src="/images/logo-fsspx.png"
             alt=""
             width={28}

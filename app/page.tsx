@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { isBeforeDeadline } from "@/lib/deadline";
 import { RsvpForm } from "@/components/rsvp-form";
 
@@ -119,7 +118,7 @@ export default async function Home() {
       {/* ── Top Bar ── */}
       <header className="flex items-center justify-between px-6 py-5 lg:px-20 lg:py-7 border-b border-border">
         <div className="flex items-center gap-3.5">
-          <Image
+          <img
             src="/images/logo-fsspx.png"
             alt=""
             width={26}
@@ -194,14 +193,11 @@ export default async function Home() {
         </div>
 
         <div className="flex items-center justify-center w-full max-w-[280px] lg:max-w-[420px] shrink-0">
-          <Image
+          <img
             src="/images/logo-csj.png"
             alt="Selo do Colégio São José"
             width={778}
             height={778}
-            priority
-            quality={95}
-            sizes="(max-width: 640px) 200px, (max-width: 1024px) 260px, 340px"
             className="w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] lg:w-[340px] lg:h-[340px] object-contain"
           />
         </div>
@@ -381,7 +377,7 @@ export default async function Home() {
       <footer className="px-6 lg:px-20 py-8 lg:py-10 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <Image
+            <img
               src="/images/logo-fsspx.png"
               alt=""
               width={28}
