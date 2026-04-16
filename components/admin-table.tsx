@@ -72,9 +72,9 @@ export function AdminTable({
   return (
     <div className="flex flex-col">
       {/* Search & Filters */}
-      <div className="flex items-center justify-between border-y border-[#D4C9A8]">
+      <div className="flex items-center border-y border-[#D4C9A8]">
         {/* Search */}
-        <div className="flex items-center gap-3 w-[500px]">
+        <div className="flex items-center gap-3 flex-1 py-4 pr-6 border-r border-[#D4C9A8]">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6450" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -117,7 +117,7 @@ export function AdminTable({
         </div>
 
         {/* Sort */}
-        <div className="flex items-center gap-2 py-4 px-6">
+        <div className="flex items-center gap-2.5 py-4 pl-6">
           <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-[#6B6450]">
             Ordenar
           </span>

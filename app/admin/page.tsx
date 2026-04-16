@@ -70,7 +70,7 @@ export default async function AdminPage() {
       {/* ── Header Section ── */}
       <section className="flex flex-col gap-7 px-20 pt-[72px] pb-12">
         {/* Section label */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3.5">
           <span className="w-10 h-px bg-wine" />
           <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.28em] text-wine">
             Painel Administrativo
@@ -79,7 +79,7 @@ export default async function AdminPage() {
 
         {/* Title row */}
         <div className="flex items-end justify-between">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3.5">
             <h1 className="font-heading text-[76px] leading-[82px] tracking-[-0.01em] font-bold text-navy">
               Livro de{'\n'}Inscrições.
             </h1>
@@ -90,7 +90,7 @@ export default async function AdminPage() {
           </div>
 
           {/* Action buttons */}
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex items-center gap-[18px] shrink-0">
             <a
               href="/api/csv"
               className="flex items-center gap-3 px-[22px] py-[14px] border border-navy font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-navy hover:bg-navy hover:text-creme transition-colors"
@@ -135,11 +135,12 @@ export default async function AdminPage() {
         {/* Stats cards */}
         <div className="flex border-t border-navy">
           {statsMeta.map(({ roman, label, key, unit, note }, i) => {
+            const isFirst = i === 0
             const isLast = i === statsMeta.length - 1
             return (
               <div
                 key={key}
-                className={`flex-1 flex flex-col gap-2.5 pt-7 pb-6 pr-8 ${!isLast ? 'border-r border-[#D4C9A8]' : ''}`}
+                className={`flex-1 flex flex-col gap-2.5 pt-7 pb-6 ${isFirst ? 'pr-8' : isLast ? 'pl-8' : 'px-8'} ${!isLast ? 'border-r border-[#D4C9A8]' : ''}`}
               >
                 <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
                   {roman}. {label}
