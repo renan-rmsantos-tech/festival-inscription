@@ -265,14 +265,14 @@ export default async function Home() {
         <div className="flex flex-col gap-8 lg:w-[420px] shrink-0">
           <div className="flex items-center gap-4">
             <div className="w-10 h-px bg-gold shrink-0 hidden sm:block" />
-            <span className="font-sans text-caption-sm tracking-[0.22em] uppercase font-semibold text-gold">
+            <span className="font-sans text-caption-sm uppercase font-semibold text-gold">
               II · Programa
             </span>
           </div>
-          <h2 className="font-heading text-[48px] sm:text-[64px] leading-[1.05] tracking-[-0.015em] font-bold text-creme">
+          <h2 className="font-heading text-[48px] sm:text-[64px] leading-[52px] sm:leading-[68px] tracking-[-0.015em] font-bold text-creme">
             Horários.
           </h2>
-          <p className="font-accent text-[20px] leading-[30px] italic text-creme/75">
+          <p className="font-accent text-[20px] leading-[30px] italic text-creme/75 mt-10 lg:mt-[68px]">
             Começamos com a Santa Missa e seguimos com um almoço típico, jogos
             para a criançada e o aguardado bingo da noite.
           </p>
@@ -378,44 +378,8 @@ export default async function Home() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="flex flex-col gap-8 lg:gap-10 px-6 lg:px-20 pt-12 lg:pt-16 pb-10 lg:pb-12 border-t border-border">
-        {/* Footer top */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-20">
-          <div className="flex flex-col gap-4 max-w-[520px]">
-            <h2 className="font-heading text-h3 tracking-[-0.01em] font-bold text-navy">
-              Ite ad Ioseph.
-            </h2>
-            <p className="font-accent text-body leading-[28px] italic font-medium text-body-ink/75">
-              &ldquo;Ide a José&rdquo; — como os egípcios em tempo de
-              necessidade, recorramos ao nosso padroeiro e celebremos juntos.
-            </p>
-          </div>
-          <div className="flex gap-12 sm:gap-[72px]">
-            <div className="flex flex-col gap-3">
-              <span className="font-sans text-[11px] leading-[14px] tracking-[0.22em] uppercase font-semibold text-body-ink/55">
-                Local
-              </span>
-              <span className="font-sans text-[15px] leading-[22px] font-medium text-body-ink">
-                Colégio São José
-                <br />
-                Pátio Principal
-              </span>
-            </div>
-            <div className="flex flex-col gap-3">
-              <span className="font-sans text-[11px] leading-[14px] tracking-[0.22em] uppercase font-semibold text-body-ink/55">
-                Contato
-              </span>
-              <span className="font-sans text-[15px] leading-[22px] font-medium text-body-ink">
-                secretaria@csj.edu.br
-                <br />
-                (11) 3000-0000
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer bottom */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-8 border-t border-border/60">
+      <footer className="px-6 lg:px-20 py-8 lg:py-10 border-t border-border">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <Image
               src="/images/sacred-heart.jpg"
