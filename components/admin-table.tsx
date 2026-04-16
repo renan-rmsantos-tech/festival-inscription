@@ -72,7 +72,7 @@ export function AdminTable({
   return (
     <div className="flex flex-col">
       {/* Search & Filters */}
-      <div className="flex items-center justify-between pb-5 border-b border-[#D4C9A8]">
+      <div className="flex items-center justify-between border-y border-[#D4C9A8]">
         {/* Search */}
         <div className="flex items-center gap-3 w-[500px]">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6450" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,11 +89,11 @@ export function AdminTable({
         </div>
 
         {/* Filter tabs */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 py-4 px-6 border-r border-[#D4C9A8]">
           <button
             onClick={() => setFilter('all')}
             className={`font-sans text-[11px] font-semibold uppercase tracking-[0.22em] cursor-pointer transition-colors ${
-              filter === 'all' ? 'text-navy' : 'text-[#6B6450]'
+              filter === 'all' ? 'text-navy pb-1 border-b border-navy' : 'text-[#6B6450]'
             }`}
           >
             Todas · {rows.length}
@@ -101,7 +101,7 @@ export function AdminTable({
           <button
             onClick={() => setFilter('today')}
             className={`font-sans text-[11px] font-medium uppercase tracking-[0.22em] cursor-pointer transition-colors ${
-              filter === 'today' ? 'text-navy font-semibold' : 'text-[#6B6450]'
+              filter === 'today' ? 'text-navy font-semibold pb-1 border-b border-navy' : 'text-[#6B6450]'
             }`}
           >
             Hoje · {todayCount}
@@ -109,26 +109,26 @@ export function AdminTable({
           <button
             onClick={() => setFilter('duplicates')}
             className={`font-sans text-[11px] font-medium uppercase tracking-[0.22em] cursor-pointer transition-colors ${
-              filter === 'duplicates' ? 'text-navy font-semibold' : 'text-[#6B6450]'
+              filter === 'duplicates' ? 'text-navy font-semibold pb-1 border-b border-navy' : 'text-[#6B6450]'
             }`}
           >
             Duplicadas · {duplicates.size}
           </button>
+        </div>
 
-          {/* Sort */}
-          <div className="flex items-center gap-2 pl-6 border-l border-[#D4C9A8]">
-            <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-[#6B6450]">
-              Ordenar
-            </span>
-            <span className="font-accent text-[17px] italic text-navy">
-              mais recentes primeiro
-            </span>
-          </div>
+        {/* Sort */}
+        <div className="flex items-center gap-2 py-4 px-6">
+          <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-[#6B6450]">
+            Ordenar
+          </span>
+          <span className="font-accent text-[17px] italic text-navy">
+            mais recentes primeiro
+          </span>
         </div>
       </div>
 
       {/* Table Header */}
-      <div className="flex items-center py-3.5 border-b-2 border-navy">
+      <div className="flex items-center py-3.5 border-b border-navy">
         <span className="w-[60px] shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
           N.º
         </span>
