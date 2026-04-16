@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import Image from "next/image";
+import Link from "next/link";
 import { db } from "@/lib/db";
 import { rsvps } from "@/lib/db/schema";
 
@@ -29,7 +30,7 @@ export default async function ConfirmacaoPage({
       <header className="flex items-center justify-between px-6 py-5 lg:px-20 lg:py-7 border-b border-border">
         <div className="flex items-center gap-3.5">
           <Image
-            src="/images/sacred-heart.svg"
+            src="/images/logo-fsspx.png"
             alt=""
             width={26}
             height={26}
@@ -112,6 +113,18 @@ export default async function ConfirmacaoPage({
             Inscrição confirmada. A festa é sábado, 01 de maio, às 10h, no
             Colégio São José.
           </p>
+
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center gap-3.5 bg-navy py-[22px] px-9 transition-opacity hover:opacity-90 active:opacity-80"
+          >
+            <span aria-hidden className="font-sans text-[14px] leading-[18px] text-gold">
+              ←
+            </span>
+            <span className="font-sans text-[14px] leading-[18px] tracking-[0.18em] uppercase font-semibold text-creme">
+              Voltar ao início
+            </span>
+          </Link>
         </div>
       </section>
 
@@ -119,7 +132,7 @@ export default async function ConfirmacaoPage({
       <footer className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 lg:px-20 py-8 border-t border-border">
         <div className="flex items-center gap-3.5">
           <Image
-            src="/images/sacred-heart.svg"
+            src="/images/logo-fsspx.png"
             alt=""
             width={28}
             height={28}

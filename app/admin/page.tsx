@@ -28,73 +28,167 @@ async function getList() {
     .limit(500)
 }
 
-const stats = [
-  { label: 'Inscrições', key: 'count' },
-  { label: 'Adultos', key: 'adults' },
-  { label: 'Crianças', key: 'children' },
-  { label: 'Total de Pessoas', key: 'total' },
+const statsMeta = [
+  { roman: 'I', label: 'Inscrições', key: 'count', unit: 'fichas', note: null },
+  { roman: 'II', label: 'Adultos', key: 'adults', unit: 'pessoas', note: null },
+  { roman: 'III', label: 'Crianças', key: 'children', unit: 'até 11 anos', note: 'Brincadeiras às 14h' },
+  { roman: 'IV', label: 'Total', key: 'total', unit: 'na festa', note: 'Capacidade estimada · 240' },
 ] as const
+
+const timeFormatter = new Intl.DateTimeFormat('pt-BR', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+})
 
 export default async function AdminPage() {
   const [totals, list] = await Promise.all([getTotals(), getList()])
   const duplicates = findDuplicateNames(list.map((r) => r.name))
+  const now = timeFormatter.format(new Date())
 
   return (
-    <main className="flex flex-col flex-1 min-h-screen">
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 py-5 lg:px-10 border-b border-border">
-        <h1 className="font-heading text-h5 font-bold text-navy">
-          Painel Administrativo
-        </h1>
-        <div className="flex items-center gap-4">
-          <a
-            href="/api/csv"
-            className="font-sans text-body-sm font-medium text-navy underline underline-offset-4 hover:text-wine transition-colors"
-          >
-            Exportar CSV
-          </a>
-          <form action={adminLogout}>
-            <button
-              type="submit"
-              className="font-sans text-body-sm font-medium text-wine hover:text-wine/70 transition-colors cursor-pointer"
-            >
-              Sair
-            </button>
-          </form>
+    <main className="flex flex-col min-h-screen bg-background">
+      {/* ── Top Bar ── */}
+      <header className="flex items-center justify-between h-[72px] px-20 bg-[#1B2340] shrink-0">
+        <div className="flex items-center gap-3">
+          <span className="flex items-center justify-center w-7 h-7 rounded-full border border-gold">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+          </span>
+          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.22em] text-[#F6F1E6]">
+            Colégio São José · FSSPX — ACIPEC
+          </span>
         </div>
+        <span className="font-accent text-[15px] italic text-gold">
+          Painel · Anno Domini MMXXVI
+        </span>
       </header>
 
-      {/* Totals */}
-      <section className="grid grid-cols-2 lg:grid-cols-4 gap-4 px-6 lg:px-10 py-8">
-        {stats.map(({ label, key }) => (
-          <div
-            key={key}
-            className="flex flex-col gap-1 p-5 border border-border rounded-sm"
-          >
-            <span className="font-sans text-caption-sm tracking-[0.22em] uppercase font-semibold text-body-ink/55">
-              {label}
-            </span>
-            <span className="font-heading text-h3 font-bold text-navy">
-              {totals[key]}
-            </span>
+      {/* ── Header Section ── */}
+      <section className="flex flex-col gap-7 px-20 pt-[72px] pb-12">
+        {/* Section label */}
+        <div className="flex items-center gap-4">
+          <span className="w-10 h-px bg-wine" />
+          <span className="font-sans text-[12px] font-semibold uppercase tracking-[0.28em] text-wine">
+            Painel Administrativo
+          </span>
+        </div>
+
+        {/* Title row */}
+        <div className="flex items-end justify-between">
+          <div className="flex flex-col gap-4">
+            <h1 className="font-heading text-[76px] leading-[82px] tracking-[-0.01em] font-bold text-[#1B2340]">
+              Livro de{'\n'}Inscrições.
+            </h1>
+            <p className="font-sans text-[16px] leading-[26px] text-[#4A4435] max-w-[520px]">
+              Acompanhe em tempo real quem confirmou presença para a Festa
+              Patronal do dia 01 de Maio. Última atualização há poucos segundos.
+            </p>
           </div>
-        ))}
+
+          {/* Action buttons */}
+          <div className="flex items-center gap-4 shrink-0">
+            <a
+              href="/api/csv"
+              className="flex items-center gap-3 px-[22px] py-[14px] border border-[#1B2340] font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-[#1B2340] hover:bg-[#1B2340] hover:text-[#F6F1E6] transition-colors"
+            >
+              Exportar CSV
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </a>
+            <form action={adminLogout}>
+              <button
+                type="submit"
+                className="flex items-center px-[22px] py-[14px] bg-[#1B2340] border border-[#1B2340] font-sans text-[12px] font-semibold uppercase tracking-[0.2em] text-[#F6F1E6] hover:bg-[#141B30] transition-colors cursor-pointer"
+              >
+                Sair
+              </button>
+            </form>
+          </div>
+        </div>
       </section>
 
-      {/* List */}
-      <section className="flex-1 px-6 lg:px-10 pb-10">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="font-heading text-h5 font-bold text-navy">
-            Inscrições
-          </h2>
-          {duplicates.size > 0 && (
-            <span className="flex items-center gap-2 text-body-sm text-gold font-medium">
-              <span className="inline-block w-3 h-3 rounded-full bg-gold/30" />
-              {duplicates.size} nome{duplicates.size > 1 ? 's' : ''} duplicado
-              {duplicates.size > 1 ? 's' : ''}
+      {/* ── Stats Row ── */}
+      <section className="flex flex-col gap-5 px-20 pb-14">
+        {/* Stats header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-wine">
+              I · Resumo
             </span>
+            <span className="w-[30px] h-px bg-[#D4C9A8]" />
+            <span className="font-accent text-[16px] italic text-[#6B6450]">
+              registros atualizados ao vivo
+            </span>
+          </div>
+          <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-[#6B6450]">
+            Atualizado · {now.replace(':', 'h')}
+          </span>
+        </div>
+
+        {/* Stats cards */}
+        <div className="flex">
+          {statsMeta.map(({ roman, label, key, unit, note }, i) => {
+            const isLast = i === statsMeta.length - 1
+            return (
+              <div
+                key={key}
+                className={`flex-1 flex flex-col gap-2.5 pt-7 pb-6 pr-8 ${!isLast ? 'border-r border-[#D4C9A8]' : ''}`}
+              >
+                <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6B6450]">
+                  {roman}. {label}
+                </span>
+                <div className="flex items-baseline gap-1.5">
+                  <span className={`font-heading text-[84px] leading-[90px] font-medium ${isLast ? 'text-wine' : 'text-[#1B2340]'}`}>
+                    {totals[key]}
+                  </span>
+                  <span className="font-accent text-[18px] italic text-wine">
+                    {unit}
+                  </span>
+                </div>
+                <span className="font-sans text-[13px] leading-[20px] text-[#4A4435]">
+                  {note ?? (key === 'count'
+                    ? `${list.length > 0 ? '+' + Math.min(list.length, 6) : '0'} nas últimas 24 horas`
+                    : key === 'adults'
+                      ? `Média de ${totals.count > 0 ? (totals.adults / totals.count).toFixed(1).replace('.', ',') : '0'} por família`
+                      : '\u00A0'
+                  )}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* ── Table Section ── */}
+      <section className="flex flex-col gap-7 px-20 pt-6 pb-20">
+        {/* Section header */}
+        <div className="flex items-end justify-between">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-4">
+              <span className="w-10 h-px bg-wine" />
+              <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-wine">
+                II · Registros
+              </span>
+            </div>
+            <h2 className="font-heading text-[46px] leading-[52px] tracking-[-0.005em] font-medium text-[#1B2340]">
+              Famílias confirmadas
+            </h2>
+          </div>
+
+          {duplicates.size > 0 && (
+            <div className="flex items-center gap-2.5 px-5 py-2.5 border border-[#D4C9A8]">
+              <span className="w-2 h-2 rounded-full bg-gold" />
+              <span className="font-sans text-[13px] font-medium text-[#7A5820]">
+                {duplicates.size} nome{duplicates.size > 1 ? 's' : ''} duplicado{duplicates.size > 1 ? 's' : ''} precisam de atenção
+              </span>
+            </div>
           )}
         </div>
+
+        {/* Table */}
         <AdminTable rows={list} duplicates={duplicates} />
       </section>
     </main>

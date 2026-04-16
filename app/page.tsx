@@ -120,7 +120,7 @@ export default async function Home() {
       <header className="flex items-center justify-between px-6 py-5 lg:px-20 lg:py-7 border-b border-border">
         <div className="flex items-center gap-3.5">
           <Image
-            src="/images/sacred-heart.svg"
+            src="/images/logo-fsspx.png"
             alt=""
             width={26}
             height={26}
@@ -382,7 +382,7 @@ export default async function Home() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <Image
-              src="/images/sacred-heart.svg"
+              src="/images/logo-fsspx.png"
               alt=""
               width={28}
               height={28}
