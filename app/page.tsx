@@ -195,12 +195,14 @@ export default async function Home() {
 
         <div className="flex items-center justify-center w-full max-w-[280px] lg:max-w-[420px] shrink-0">
           <Image
-            src="/images/csj-seal.jpg"
+            src="/images/logo-csj.png"
             alt="Selo do Colégio São José"
-            width={340}
-            height={340}
+            width={778}
+            height={778}
             priority
-            className="w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] lg:w-[340px] lg:h-[340px] rounded-full"
+            quality={95}
+            sizes="(max-width: 640px) 200px, (max-width: 1024px) 260px, 340px"
+            className="w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] lg:w-[340px] lg:h-[340px] object-contain"
           />
         </div>
       </section>
