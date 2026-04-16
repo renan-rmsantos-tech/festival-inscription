@@ -1,8 +1,10 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 import type { Rsvp } from '@/lib/db/schema'
 import { normalizeName } from '@/lib/duplicates'
+import { deleteRsvp } from '@/app/actions/rsvp'
 
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', {
   day: '2-digit',
@@ -36,8 +38,11 @@ export function AdminTable({
   rows: Rsvp[]
   duplicates: Set<string>
 }) {
+  const router = useRouter()
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<Filter>('all')
+  const [expanded, setExpanded] = useState<string | null>(null)
+  const [deleting, startDelete] = useTransition()
 
   const todayCount = useMemo(() => {
     const today = new Date()
@@ -157,8 +162,8 @@ export function AdminTable({
         const isNew = Date.now() - row.createdAt.getTime() < 3_600_000
 
         return (
+          <div key={row.code}>
           <div
-            key={row.code}
             className={`flex items-center py-4 border-b border-[#E8E0CF] ${
               isNew ? 'bg-[#C28E3C]/6' : ''
             }`}
@@ -225,13 +230,63 @@ export function AdminTable({
 
             {/* Actions */}
             <div className="w-[150px] shrink-0 flex items-center justify-end gap-4">
-              <button className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-[#1B2340] underline underline-offset-[3px] decoration-1 cursor-pointer hover:text-[#1B2340]/70 transition-colors">
-                Detalhes
+              <button
+                onClick={() => setExpanded(expanded === row.code ? null : row.code)}
+                className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-[#1B2340] underline underline-offset-[3px] decoration-1 cursor-pointer hover:text-[#1B2340]/70 transition-colors"
+              >
+                {expanded === row.code ? 'Fechar' : 'Detalhes'}
               </button>
-              <button className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-wine cursor-pointer hover:text-wine/70 transition-colors">
+              <button
+                disabled={deleting}
+                onClick={() => {
+                  if (!confirm(`Excluir inscrição de ${row.name}?`)) return
+                  startDelete(async () => {
+                    await deleteRsvp(row.code)
+                    router.refresh()
+                  })
+                }}
+                className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-wine cursor-pointer hover:text-wine/70 transition-colors disabled:opacity-50"
+              >
                 Excluir
               </button>
             </div>
+          </div>
+
+          {/* Expanded details */}
+          {expanded === row.code && (
+            <div className="flex gap-8 px-[60px] py-5 bg-[#F6F1E6] border-b border-[#E8E0CF]">
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Código</span>
+                <span className="font-heading text-[18px] font-medium text-[#1B2340]">{row.code}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Responsável</span>
+                <span className="font-sans text-[14px] text-[#1B2340]">{row.name}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">E-mail</span>
+                <span className="font-sans text-[14px] text-[#1B2340]">{row.email || '—'}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Telefone</span>
+                <span className="font-sans text-[14px] text-[#1B2340]">{row.phone || '—'}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Adultos</span>
+                <span className="font-sans text-[14px] text-[#1B2340]">{row.adults}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Crianças</span>
+                <span className="font-sans text-[14px] text-[#1B2340]">{row.children}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6450]">Inscrito em</span>
+                <span className="font-sans text-[14px] text-[#1B2340]">
+                  {dateFormatter.format(row.createdAt)} às {timeFormatter.format(row.createdAt)}
+                </span>
+              </div>
+            </div>
+          )}
           </div>
         )
       })}
