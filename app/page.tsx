@@ -157,7 +157,7 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 pt-2">
             <div className="flex flex-col">
               <span className="font-sans text-[12px] leading-[16px] tracking-[0.24em] uppercase font-medium text-body-ink/70">
-                Sábado
+                Sexta-feira
               </span>
               <span className="font-heading text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.1] lg:leading-[60px] tracking-[-0.01em] font-bold text-body-ink">
                 01 de Maio
@@ -367,7 +367,7 @@ export default async function Home() {
               Inscrições encerradas.
             </h2>
             <p className="font-accent text-[24px] leading-[34px] italic font-medium text-body-ink/80 text-center">
-              Até sábado!
+              Até sexta-feira!
             </p>
           </div>
         )}

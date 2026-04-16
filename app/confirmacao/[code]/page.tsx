@@ -109,7 +109,7 @@ export default async function ConfirmacaoPage({
 
           {/* Aviso */}
           <p className="font-accent text-[20px] leading-[30px] italic font-medium text-body-ink/80 text-center">
-            Inscrição confirmada. A festa é sábado, 01 de maio, às 10h, no
+            Inscrição confirmada. A festa é sexta-feira, 01 de maio, às 10h, no
             Colégio São José.
           </p>
 
