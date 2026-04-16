@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Cormorant_Garamond, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const lora = Lora({
@@ -50,7 +51,10 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${lora.variable} ${cormorantGaramond.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-foreground bg-background">{children}</body>
+      <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

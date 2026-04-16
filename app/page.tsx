@@ -77,7 +77,7 @@ const INFO_ITEMS = [
           </div>
         </div>
         <p className="font-accent text-[22px] leading-[28px] italic font-medium text-body-ink">
-          Garanta sua presença inscrevendo a família abaixo até esta data.
+          Ajude a organização fazendo a sua inscrição e da sua família para nossa festa.
         </p>
       </>
     ),
@@ -104,7 +104,7 @@ const PROGRAMA_ITEMS = [
     desc: "Brincadeiras tradicionais e muitos prêmios para os pequenos aproveitarem.",
   },
   {
-    time: "17h",
+    time: "16h",
     period: "Encerramento",
     title: "Grande Bingo",
     desc: "O momento mais aguardado — cartelas, prêmios e a torcida da família inteira.",
@@ -187,7 +187,7 @@ export default async function Home() {
               </span>
             </a>
             <span className="font-accent text-[17px] leading-[22px] italic font-medium text-body-ink/70">
-              Inscrições abertas até 25 de abril
+              Inscrições pelo link até 25 de abril
             </span>
           </div>
         </div>
@@ -334,7 +334,7 @@ export default async function Home() {
                 {[
                   'Preenchimento em 2 minutos',
                   'Confirmação enviada ao responsável',
-                  'Inscrições abertas até 25 de abril',
+                  'Inscrições pelo link até 25 de abril',
                 ].map((item) => (
                   <li key={item} className="flex items-baseline gap-3">
                     <span
